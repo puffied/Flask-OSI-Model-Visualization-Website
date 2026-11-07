@@ -1,17 +1,12 @@
 /* header part here */
 
 :root {
-    /* Layer 7 (Oben) - Helles, strahlendes Blau */
     --color-7: #38bdf8; 
-    
-    /* Der Fade geht stufenlos in immer dunklere Blautöne über */
     --color-6: #0ea5e9;
     --color-5: #0284c7;
     --color-4: #0369a1;
     --color-3: #075985;
     --color-2: #0c4a6e;
-    
-    /* Layer 1 (Unten) - Tiefes, dunkles Marineblau */
     --color-1: #0a3551; 
 }
 
@@ -95,11 +90,10 @@ body {
     z-index: 10;
 }
 
-/* Wenn die Karte offen ist, schiebt sie sich nach vorne */
+
 .description-card.active {
     z-index: 20;
     grid-template-rows: auto 1fr; 
-    /* Wenn aufgeklappt, soll sie nicht mehr mit der darunterliegenden verschmelzen */
     margin-bottom: 10px; 
 }
 
@@ -129,22 +123,16 @@ body {
     flex-direction: column;
     width: 100%; 
     max-width: 450px;
-    /* Verringert den Abstand, damit die Münzen aufeinander liegen */
     gap: 0px; 
-    /* Leichter 3D-Schatten für den gesamten Stack */
     filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
 }
 
 .layer-card {
     background: var(--layer-color);
-    /* Die Abrundung, die den Zylinder erzeugt */
     border-radius: 30% / 10px; 
-    /* Abstand nach oben/unten, damit sich die Münzen leicht überlappen */
     margin-top: -10px; 
     position: relative;
     cursor: pointer;
-    
-    /* CSS Grid für die Auf-/Zuklapp-Animation */
     display: grid;
     grid-template-rows: auto 0fr; 
     transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s ease, z-index 0s;
@@ -154,17 +142,14 @@ body {
 
 
 
-/* Hebt die Karte beim Hovern leicht an */
 .layer-card:hover {
     transform: scale(1.02);
     z-index: 10;
 }
 
-/* Wenn die Karte offen ist, schiebt sie sich nach vorne */
 .layer-card.active {
     z-index: 20;
     grid-template-rows: auto 1fr; 
-    /* Wenn aufgeklappt, soll sie nicht mehr mit der darunterliegenden verschmelzen */
     margin-bottom: 10px; 
 }
 
