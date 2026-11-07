@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OSI Model Interactive</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="header-container">
+        <div class="header-title">
+            <h1>The OSI Model</h1>
+            <p>❯ Click on the card down below to learn more about the OSI Model.</p>
+            <p>❯ Click on a layer on the graphical model down below to learn more about each layer.</p>
+        </div>
+    </div>
+    
+
+    <div class="description-card" onclick="toggleCard(this)">
+        <div class="description-header">
+            <div class="description-name">What is the OSI Model?</div>
+            <div class="toggle-arrow">▼</div>
+        </div>
+    
+    <div class="description-details">
+        <div class="details-inn">
+            <p class="full-info">The OSI model (Open Systems Interconnection) is a conceptual framework developed by ISO in 1984 that describes how data moves across a network.
+            It divides network communication into seven layers, each with a specific job. Each layer only talks to the layers directly above and below it, and adds its own header to the data before passing it down (encapsulation).
+            This separation of concerns makes networks easier to understand, troubleshoot and design.
+            You can change one layer without breaking the others.
+            While the modern internet actually runs on the simpler TCP/IP model (4 layers), the OSI model remains the standard vocabulary for talking about networks.</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="short-txt">
+        <h1>Graphical OSI Model Layers ▼</h1>
+    </div>
+
+    <div class="osi-stack">
+        {% for layer_num, layer_data in layers.items() %}
+        <div class="layer-card" style="--layer-color: var(--color-{{ layer_num }});" onclick="toggleCard(this)">
+            
+            <div class="layer-header">
+                <div class="layer-number">L{{ layer_num }}</div>
+                <div class="layer-name">{{ layer_data.name }}</div>
+                <div class="toggle-icon">▽</div>
+            </div>
+            
+            <div class="layer-details">
+                <div class="details-inner">
+                    <p>{{ layer_data.desc }}</p>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
